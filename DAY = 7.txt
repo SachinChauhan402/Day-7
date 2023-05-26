@@ -1,0 +1,53 @@
+								DAY = 7
+
+Question: 1 (a) 
+
+fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    const countriesFromAsia = data.filter(country => country.region === 'Asia');
+    console.log(countriesFromAsia);
+  })
+  .catch(error => console.log('Error:', error));
+
+
+(b)  		fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    const countriesWithLessPopulation = data.filter(country => country.population < 200000);
+    console.log(countriesWithLessPopulation);
+  })
+  .catch(error => console.log('Error:', error));
+
+
+(c)  			fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(country => {
+      console.log('Name:', country.name.common);
+      console.log('Capital:', country.capital);
+      console.log('Flag:', country.flags.svg);
+      console.log('------------------------');
+    });
+  })
+  .catch(error => console.log('Error:', error));
+
+
+(d) 			fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    const totalPopulation = data.reduce((total, country) => total + country.population, 0);
+    console.log('Total Population:', totalPopulation);
+  })
+  .catch(error => console.log('Error:', error));
+
+
+(e)		fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    const countriesWithUSD = data.filter(country => country.currencies && country.currencies.USD);
+    countriesWithUSD.forEach(country => {
+      console.log('Country:', country.name.common);
+    });
+  })
+  .catch(error => console.log('Error:', error));
